@@ -56,10 +56,10 @@ svg.selectAll("circle")
 });
 
 svg.on("mousemove", function() {
-var p1 = d3.svg.mouse(this);
-root.px = p1[0];
-root.py = p1[1];
-force.resume();
+  var p1 = d3.svg.mouse(this);
+  root.px = p1[0];
+  root.py = p1[1];
+  force.resume();
 });
 
 function collide(node) {
