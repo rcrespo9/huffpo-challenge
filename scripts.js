@@ -1,7 +1,7 @@
 // angular
 var app = angular.module("myapp", ["firebase"]);
 
-function MyController($scope, angularFire) { 
+app.controller('MyController', function ($scope, angularFire) { 
 	var ref = new Firebase("https://huffpochallenge.firebaseio.com/");
 	  $scope.messages = [];
 	  angularFire(ref, $scope, "messages");
@@ -10,13 +10,61 @@ function MyController($scope, angularFire) {
 	    $scope.messages.push({from: $scope.name, body: $scope.msg});
 	    $scope.msg = "";
 	};
-};
+});
+
+// huffpo.json
+var messages = [ {
+  "from" : "Rudy",
+  "body" : "Awesome!"
+}, {
+  "from" : "Noel",
+  "body" : "Craziness!"
+}, {
+  "from" : "Rudy",
+  "body" : "I know, right?!"
+}, {
+  "from" : "Rudy",
+  "body" : "Incredible"
+}, {
+  "from" : "Ted",
+  "body" : "Dude."
+}, {
+  "from" : "Jordan",
+  "body" : "Amazing"
+}, {
+  "from" : "Bob",
+  "body" : "Wow..."
+}, {
+  "from" : "Jill",
+  "body" : "This is splendid."
+}, {
+  "from" : "Joe",
+  "body" : "It really is unbelievable"
+}, {
+  "from" : "Carl",
+  "body" : "Great!"
+}, {
+  "from" : "Judy",
+  "body" : "I love it."
+}, {
+  "from" : "Roy",
+  "body" : "Jesus Christ!"
+}, {
+  "from" : "Steve",
+  "body" : "Why won't this work?"
+}, {
+  "from" : "George",
+  "body" : "I'm wracking my brains here for a solution."
+}, {
+  "from" : "Tim",
+  "body" : "We're getting there!"
+} ];
 
 // d3
 var w = 1280,
 	  h = 800;
 
-var nodes = d3.range(200).map(function() { return {radius: Math.random() * 12 + 4}; }),
+var nodes = d3.range(messages.length).map(function() { return {radius: Math.random() * 12 + 4}; }),
     color = d3.scale.category10();
 
 var force = d3.layout.force()
@@ -63,28 +111,28 @@ svg.on("mousemove", function() {
 });
 
 function collide(node) {
-var r = node.radius + 16,
-    nx1 = node.x - r,
-    nx2 = node.x + r,
-    ny1 = node.y - r,
-    ny2 = node.y + r;
-return function(quad, x1, y1, x2, y2) {
-  if (quad.point && (quad.point !== node)) {
-    var x = node.x - quad.point.x,
-        y = node.y - quad.point.y,
-        l = Math.sqrt(x * x + y * y),
-        r = node.radius + quad.point.radius;
-    if (l < r) {
-      l = (l - r) / l * .5;
-      node.x -= x *= l;
-      node.y -= y *= l;
-      quad.point.x += x;
-      quad.point.y += y;
+  var r = node.radius + 16,
+      nx1 = node.x - r,
+      nx2 = node.x + r,
+      ny1 = node.y - r,
+      ny2 = node.y + r;
+  return function(quad, x1, y1, x2, y2) {
+    if (quad.point && (quad.point !== node)) {
+      var x = node.x - quad.point.x,
+          y = node.y - quad.point.y,
+          l = Math.sqrt(x * x + y * y),
+          r = node.radius + quad.point.radius;
+      if (l < r) {
+        l = (l - r) / l * .5;
+        node.x -= x *= l;
+        node.y -= y *= l;
+        quad.point.x += x;
+        quad.point.y += y;
+      }
     }
-  }
-  return x1 > nx2
-      || x2 < nx1
-      || y1 > ny2
-      || y2 < ny1;
+    return x1 > nx2
+        || x2 < nx1
+        || y1 > ny2
+        || y2 < ny1;
+  };
 };
-}
