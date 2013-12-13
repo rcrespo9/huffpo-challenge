@@ -1,28 +1,3 @@
-// angular
-var app = angular.module("myapp", ["firebase"]);
-
-app.controller('MyController', function ($scope, angularFire) { 
-	var ref = new Firebase("https://huffpochallenge.firebaseio.com/");
-	  $scope.messages = [];
-	  angularFire(ref, $scope, "messages");
-	  $scope.addMessage = function(e) {
-	    if (e.keyCode != 13) return;
-	    $scope.messages.push({from: $scope.name, body: $scope.msg});
-	    $scope.msg = "";
-	};
-});
-
-var messages = new Firebase("https://huffpochallenge.firebaseio.com/");
-
-var count = 0;
-messages.on('value', function(snapshot) {
-   snapshot.forEach(function() {
-       count++;
-   });
-});
-
-
-// d3
 $(setTimeout(function() {
   var w = 1280,
   	  h = 800;

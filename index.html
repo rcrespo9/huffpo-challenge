@@ -4,27 +4,43 @@
     <title>Huffington Post Code Challenge</title>
     <link type="text/css" rel="stylesheet" href="style.css"/>
   </head>
-  <body ng-controller="MyController">
-<!--     <div class="container">
-      <div id="body">
+  <body>
+
+    <div class="container" ng-controller="MyController">
+
+      <!-- article -->
+      <div id="article">
+        <h1>{{article.title}}</h1>
+        <p>Posted: {{article.date | date:'medium'}}</p>
+        <p>{{article.paragraph1}}</p>
+        <p>{{article.paragraph2}}</p>
+        <p>{{article.paragraph3}}</p>
       </div>
-    </div> -->
-    <div id="messagesDiv">
-      <div ng-repeat="msg in messages" class="message"><em>{{msg.from}}</em>: {{msg.body}}</div>
+      <!-- /article -->
+
+      <!-- realtime chat -->
+      <div id="messagesDiv">
+          <div ng-repeat="msg in messages" class="message"><em>{{msg.from}}</em>: {{msg.body}}</div>
+      </div>
+        <input type="text" ng-model="name" placeholder="Name">
+        <input type="text" ng-model="msg" ng-keydown="addMessage($event)" placeholder="Message...">
+      <!-- /realtime chat -->
+
     </div>
-    <input type="text" ng-model="name" placeholder="Name">
-    <input type="text" ng-model="msg" ng-keydown="addMessage($event)" placeholder="Message...">
-    <h1 id="messages-length">{{messages.length}}</h1>
-    <a href="visualization.html">Play!</a>
+
+    <a href ="#/play">Play!</a>
     <!-- scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-route.min.js"></script>
     <script src='https://cdn.firebase.com/v0/firebase.js'></script>
     <script src='https://cdn.firebase.com/libs/angularfire/0.3.0/angularfire.min.js'></script>
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/controller.js"></script>
     <script type="text/javascript" src="d3/d3.js"></script>
     <script type="text/javascript" src="d3/d3.geom.js"></script>
     <script type="text/javascript" src="d3/d3.layout.js"></script>
-    <script type="text/javascript" src="scripts.js"></script>
+    <script type="text/javascript" src="d3/collision.js"></script>
     <!-- /scripts -->
   </body>
 </html>
