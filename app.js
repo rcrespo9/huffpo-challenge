@@ -1,14 +1,32 @@
-var app = angular.module("myapp", ["firebase", "nvd3ChartDirectives"]);
+// router
+var app = angular.module('myapp', ['ngRoute']);
+ 
+app.config(['$routeProvider',
+  function($routeProvider) {
+    $routeProvider.
+      otherwise({redirectTo: '/'});
+  }]);
 
-app.controller('MessagesController', function ($scope, angularFire) { 
+
+// controller
+var app = angular.module("myapp", ["firebase", "nvd3ChartDirectives", "ngRoute"]);
+
+app.controller('MessagesController', function ($scope, $route, angularFire) { 
 	var ref = new Firebase("https://huffpochallenge.firebaseio.com/");
 		$scope.messages = [];
 		angularFire(ref, $scope, "messages");
 		$scope.addMessage = function(e) {
-		if (e.keyCode != 13) return;
-		$scope.messages.push({from: $scope.name, body: $scope.msg});
-		$scope.msg = "";
-	};
+			if (e.keyCode != 13) return;
+			$scope.messages.push({from: $scope.name, body: $scope.msg});
+			$scope.msg = "";
+			$scope.reloadCtrl();
+		};
+
+		// $scope.reloadCtrl = function(){
+		// 	alert('reloading...');
+		// 	$route.reload();
+		// };
+
 
 	$scope.article = {
 		title: "The Sand Dunes",
@@ -21,16 +39,20 @@ app.controller('MessagesController', function ($scope, angularFire) {
 		paragraph3: "Fusce ac tincidunt nibh, ultricies pulvinar nisl. In quam metus, mattis non tincidunt in, pharetra ut mauris. Phasellus aliquam, ligula in convallis faucibus, neque dolor mollis quam, sit amet venenatis massa sapien vel odio. Proin ultrices sapien sed tortor dictum euismod. Nullam varius convallis nisl, quis rutrum sem venenatis vitae. Etiam id arcu et neque convallis dignissim in sed orci. Suspendisse lacinia cursus justo et varius. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer non semper nibh."
 	};
 
-	setTimeout(function() {
-		var total = $scope.messages.length;
-		$scope.$apply(function() {
-			$scope.messagesCount =  {
-				"title": "Chat",
-				"subtitle": "Away!",
-				"ranges": [10, 30, 50],
-				"measures": [total],
-				"markers": [30]
-		    };
-	    });
-    }, 1000);
+	$scope.reloadCtrl = function() {
+		$route.reload();
+		setTimeout(function() {
+			total = $scope.messages.length;
+			$scope.$apply(function() {
+				$scope.messagesCount =  {
+					"title": "Messages",
+					"subtitle": "Sent",
+					"ranges": [0, total * 5],
+					"measures": [total],
+					"markers": [0]
+			    };
+		    });
+	    }, 1000);
+	};
+
 });
