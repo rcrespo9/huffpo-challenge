@@ -1,7 +1,7 @@
-// controller
-var app = angular.module("myapp", ["firebase"]);
+// controllers
+var app = angular.module("myapp", ["firebase", "nvd3ChartDirectives"]);
 
-app.controller('MyController', function ($scope, angularFire) { 
+app.controller('MessagesController', function ($scope, angularFire) { 
 	var ref = new Firebase("https://huffpochallenge.firebaseio.com/");
 	  $scope.messages = [];
 	  angularFire(ref, $scope, "messages");
@@ -21,20 +21,22 @@ app.controller('MyController', function ($scope, angularFire) {
 
 		paragraph3: "Fusce ac tincidunt nibh, ultricies pulvinar nisl. In quam metus, mattis non tincidunt in, pharetra ut mauris. Phasellus aliquam, ligula in convallis faucibus, neque dolor mollis quam, sit amet venenatis massa sapien vel odio. Proin ultrices sapien sed tortor dictum euismod. Nullam varius convallis nisl, quis rutrum sem venenatis vitae. Etiam id arcu et neque convallis dignissim in sed orci. Suspendisse lacinia cursus justo et varius. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer non semper nibh."
 	};
+
+	$scope.exampleData =  {
+        "title": "Chat",
+        "subtitle": "Away!",
+        "ranges": [150, 225, 300],
+        "measures": [220],
+        "markers": [250]
+    };
 });
 
 // messages counter
-var messages = new Firebase("https://huffpochallenge.firebaseio.com/");
+// var messages = new Firebase("https://huffpochallenge.firebaseio.com/");
 
-var count = 0;
-messages.on('value', function(snapshot) {
-   snapshot.forEach(function() {
-       count++;
-   });
-});
-
-function Cntrl ($scope,$location) {
-    $scope.changeView = function(view){
-        $location.path(view); // path not hash
-    }
-}
+// var count = 0;
+// messages.on('value', function(snapshot) {
+//    snapshot.forEach(function() {
+//        count++;
+//    });
+// });
