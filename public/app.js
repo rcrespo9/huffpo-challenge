@@ -48,11 +48,12 @@ app.controller('MessagesController', function ($scope, $route, angularFire) {
 					"markers": [0]
 			    };
 		    });
-    	}, 800);
+    	}, 700);
 	};
 
-	// initializing bullet chart
+	// initializing controller and bullet chart
 	var init = function () {
+		app.controller();
 		$scope.loadCtrl();
 	};
 
