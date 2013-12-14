@@ -1,14 +1,13 @@
-// controllers
 var app = angular.module("myapp", ["firebase", "nvd3ChartDirectives"]);
 
 app.controller('MessagesController', function ($scope, angularFire) { 
 	var ref = new Firebase("https://huffpochallenge.firebaseio.com/");
-	  $scope.messages = [];
-	  angularFire(ref, $scope, "messages");
-	  $scope.addMessage = function(e) {
-	    if (e.keyCode != 13) return;
-	    $scope.messages.push({from: $scope.name, body: $scope.msg});
-	    $scope.msg = "";
+		$scope.messages = [];
+		angularFire(ref, $scope, "messages");
+		$scope.addMessage = function(e) {
+		if (e.keyCode != 13) return;
+		$scope.messages.push({from: $scope.name, body: $scope.msg});
+		$scope.msg = "";
 	};
 
 	$scope.article = {
@@ -22,21 +21,16 @@ app.controller('MessagesController', function ($scope, angularFire) {
 		paragraph3: "Fusce ac tincidunt nibh, ultricies pulvinar nisl. In quam metus, mattis non tincidunt in, pharetra ut mauris. Phasellus aliquam, ligula in convallis faucibus, neque dolor mollis quam, sit amet venenatis massa sapien vel odio. Proin ultrices sapien sed tortor dictum euismod. Nullam varius convallis nisl, quis rutrum sem venenatis vitae. Etiam id arcu et neque convallis dignissim in sed orci. Suspendisse lacinia cursus justo et varius. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer non semper nibh."
 	};
 
-	$scope.exampleData =  {
-        "title": "Chat",
-        "subtitle": "Away!",
-        "ranges": [150, 225, 300],
-        "measures": [220],
-        "markers": [250]
-    };
+	setTimeout(function() {
+		var total = $scope.messages.length;
+		$scope.$apply(function() {
+			$scope.messagesCount =  {
+				"title": "Chat",
+				"subtitle": "Away!",
+				"ranges": [10, 30, 50],
+				"measures": [total],
+				"markers": [30]
+		    };
+	    });
+    }, 1000);
 });
-
-// messages counter
-// var messages = new Firebase("https://huffpochallenge.firebaseio.com/");
-
-// var count = 0;
-// messages.on('value', function(snapshot) {
-//    snapshot.forEach(function() {
-//        count++;
-//    });
-// });

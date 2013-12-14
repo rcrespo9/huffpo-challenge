@@ -16,6 +16,7 @@
         <p>{{article.paragraph1}}</p>
         <p>{{article.paragraph2}}</p>
         <p>{{article.paragraph3}}</p>
+        <h1>{{article.messagesamount}}</h1>
       </div>
       <!-- /article -->
 
@@ -29,8 +30,7 @@
 
         <!-- bullet chart -->
         <nvd3-bullet-chart
-          data="exampleData"
-          id="exampleId"
+          data="messagesCount"
           margin="{left:75,top:30,bottom:30,right:10}"
           width="550"
           height="160">
