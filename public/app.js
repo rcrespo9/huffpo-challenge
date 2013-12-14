@@ -53,7 +53,6 @@ app.controller('MessagesController', function ($scope, $route, angularFire) {
 
 	// initializing controller and bullet chart
 	var init = function () {
-		app.controller();
 		$scope.loadCtrl();
 	};
 
