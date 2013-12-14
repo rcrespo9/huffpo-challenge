@@ -19,13 +19,8 @@ app.controller('MessagesController', function ($scope, $route, angularFire) {
 			if (e.keyCode != 13) return;
 			$scope.messages.push({from: $scope.name, body: $scope.msg});
 			$scope.msg = "";
-			$scope.reloadCtrl();
+			$scope.loadCtrl(); //reloads bullet chart
 		};
-
-		// $scope.reloadCtrl = function(){
-		// 	alert('reloading...');
-		// 	$route.reload();
-		// };
 
 
 	$scope.article = {
@@ -39,7 +34,8 @@ app.controller('MessagesController', function ($scope, $route, angularFire) {
 		paragraph3: "Fusce ac tincidunt nibh, ultricies pulvinar nisl. In quam metus, mattis non tincidunt in, pharetra ut mauris. Phasellus aliquam, ligula in convallis faucibus, neque dolor mollis quam, sit amet venenatis massa sapien vel odio. Proin ultrices sapien sed tortor dictum euismod. Nullam varius convallis nisl, quis rutrum sem venenatis vitae. Etiam id arcu et neque convallis dignissim in sed orci. Suspendisse lacinia cursus justo et varius. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer non semper nibh."
 	};
 
-	$scope.reloadCtrl = function() {
+	// bullet chart model reloads after messages are sent to reflect messageCount change
+	$scope.loadCtrl = function() {
 		$route.reload();
 		setTimeout(function() {
 			total = $scope.messages.length;
@@ -52,7 +48,13 @@ app.controller('MessagesController', function ($scope, $route, angularFire) {
 					"markers": [0]
 			    };
 		    });
-	    }, 1000);
+    	}, 500);
 	};
 
+	// initializing bullet chart
+	var init = function () {
+		$scope.loadCtrl();
+	};
+
+	init();
 });
