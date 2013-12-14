@@ -48,7 +48,7 @@ app.controller('MessagesController', function ($scope, $route, angularFire) {
 					"markers": [0]
 			    };
 		    });
-    	}, 500);
+    	}, 800);
 	};
 
 	// initializing bullet chart

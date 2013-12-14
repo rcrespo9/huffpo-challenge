@@ -1,0 +1,34 @@
+<div class="container" ng-controller="MessagesController">
+
+  <!-- article -->
+  <div id="article">
+    <h1>{{article.title}}</h1>
+    <p>Posted: {{article.date | date:'medium'}}</p>
+    <p>{{article.paragraph1}}</p>
+    <p>{{article.paragraph2}}</p>
+    <p>{{article.paragraph3}}</p>
+    <h1>{{article.messagesamount}}</h1>
+  </div>
+  <!-- /article -->
+
+  <!-- realtime chat -->
+  <div id="messagesDiv">
+      <div ng-repeat="msg in messages" class="message"><em>{{msg.from}}</em>: {{msg.body}}</div>
+  </div>
+    <input type="text" ng-model="name" placeholder="Name">
+    <input type="text" ng-model="msg" ng-keydown="addMessage($event)" placeholder="Message...">
+    <!-- /realtime chat -->
+
+    <!-- bullet chart -->
+    <nvd3-bullet-chart
+      data="messagesCount"
+      margin="{left:75,top:30,bottom:30,right:10}"
+      width="550"
+      height="160"
+      interactive="true"
+      tooltips="true">
+      <svg></svg>
+    </nvd3-bullet-chart>
+    <!-- /bullet chart -->
+    
+</div>
