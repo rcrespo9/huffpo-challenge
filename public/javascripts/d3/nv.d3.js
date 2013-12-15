@@ -1772,7 +1772,7 @@ nv.models.bullet = function() {
     , width = 380
     , height = 30
     , tickFormat = null
-    , color = nv.utils.getColor(['#1f77b4'])
+    , color = nv.utils.getColor(['#990100'])
     , dispatch = d3.dispatch('elementMouseover', 'elementMouseout')
     ;
 

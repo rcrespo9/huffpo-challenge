@@ -42,3 +42,7 @@ article {
 	padding: 80px 0 50px;
 	margin: 0 auto;
 }
+
+.nvd3.nv-bullet .nv-range {
+  fill: #D6D0C0;
+}
