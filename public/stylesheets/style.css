@@ -1,4 +1,4 @@
-@import 'http://fonts.googleapis.com/css?family=Oswald:700|Droid+Serif:400';
+@import 'http://fonts.googleapis.com/css?family=Oswald:700|Droid+Serif:400,700';
 
 html, body {
 	background-color: #fff;
@@ -23,13 +23,14 @@ h1 {
 	text-transform: uppercase;
 }
 
+
 .sub-header {
 	color: #000;
 	font-family: 'Oswald', sans-serif;
 	font-weight: 700;
 	font-size: 2em;
 	text-transform: uppercase;
-	letter-spacing: .1em;
+	letter-spacing: .05em;
 }
 
 #sir-francis {
@@ -43,6 +44,20 @@ article {
 	margin: 0 auto;
 }
 
+/*bullet chart*/
 .nvd3.nv-bullet .nv-range {
   fill: #D6D0C0;
 }
+
+svg text {
+	font-family: 'Droid Serif', serif;
+	font-size: 1em;
+	font-weight: 400;
+}
+
+#current {
+	font-family: 'Droid Serif', serif;
+	font-weight: 400;
+	font-size: 1.1em;
+}
+/*end bullet chart*/

@@ -1931,24 +1931,24 @@ nv.models.bullet = function() {
       }
 
 
-      wrap.selectAll('.nv-range')
-          .on('mouseover', function(d,i) {
-            var label = rangeLabelz[i] || (!i ? "Maximum" : i == 1 ? "Mean" : "Minimum");
+      // wrap.selectAll('.nv-range')
+      //     .on('mouseover', function(d,i) {
+      //       var label = rangeLabelz[i] || (!i ? "Maximum" : i == 1 ? "Mean" : "Minimum");
 
-            dispatch.elementMouseover({
-              value: d,
-              label: label,
-              pos: [x1(d), availableHeight/2]
-            })
-          })
-          .on('mouseout', function(d,i) {
-            var label = rangeLabelz[i] || (!i ? "Maximum" : i == 1 ? "Mean" : "Minimum");
+      //       dispatch.elementMouseover({
+      //         value: d,
+      //         label: label,
+      //         pos: [x1(d), availableHeight/2]
+      //       })
+      //     })
+      //     .on('mouseout', function(d,i) {
+      //       var label = rangeLabelz[i] || (!i ? "Maximum" : i == 1 ? "Mean" : "Minimum");
 
-            dispatch.elementMouseout({
-              value: d,
-              label: label
-            })
-          })
+      //       dispatch.elementMouseout({
+      //         value: d,
+      //         label: label
+      //       })
+      //     })
 
 /* // THIS IS THE PREVIOUS BULLET IMPLEMENTATION, WILL REMOVE SHORTLY
       // Update the range rects.
@@ -2157,8 +2157,8 @@ nv.models.bulletChart = function() {
     , tickFormat = null
     , tooltips = true
     , tooltip = function(key, x, y, e, graph) {
-        return '<h3>' + x + '</h3>' +
-               '<p>' + y + '</p>'
+        return '<h3 id="current">' + x + '</h3>' +
+               '<p id="current">' + y + '</p>'
       }
     , noData = 'No Data Available.'
     , dispatch = d3.dispatch('tooltipShow', 'tooltipHide')
