@@ -1,0 +1,35 @@
+@import 'http://fonts.googleapis.com/css?family=Oswald:700|Droid+Serif:400';
+
+html, body {
+	background-color: #fff;
+	color: #333;
+	font-family: 'Droid Serif', serif;
+	font-weight: 400;
+	line-height: 28px;
+	height: 100%;
+	width: 100%;
+	text-rendering: optimizeLegibility;
+}
+
+header {
+	margin-bottom: 3%;
+}
+
+h1 {
+	color: #000;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 700;
+	font-size: 6.25em;
+	text-transform: uppercase;
+}
+
+article {
+	font-size: 1.2em;
+	max-width: 640px;
+	padding: 80px 0 50px;
+	margin: 0 auto;
+}
+
+#sirfrancis {
+	margin-bottom: 2%;
+}
