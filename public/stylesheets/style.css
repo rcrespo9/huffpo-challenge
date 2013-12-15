@@ -23,13 +23,22 @@ h1 {
 	text-transform: uppercase;
 }
 
+.sub-header {
+	color: #000;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 700;
+	font-size: 2em;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+}
+
+#sir-francis {
+	margin-bottom: 2%;
+}
+
 article {
 	font-size: 1.2em;
 	max-width: 640px;
 	padding: 80px 0 50px;
 	margin: 0 auto;
-}
-
-#sirfrancis {
-	margin-bottom: 2%;
 }
