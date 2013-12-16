@@ -19,9 +19,7 @@ app.controller('MessagesController', function ($scope, $route, angularFire) {
 			if (e.keyCode != 13) return;
 			$scope.messages.push({from: $scope.name, body: $scope.msg});
 			$scope.msg = "";
-			setTimeout(function() {
-				$scope.loadChart(); //reloads bullet chart
-			}, 100);
+			$scope.loadChart(); //reloads bullet chart
 		};
 
 
@@ -44,6 +42,7 @@ app.controller('MessagesController', function ($scope, $route, angularFire) {
 	// bullet chart model reloads after messages are sent to reflect messageCount change
 	$scope.loadChart = function() {
 		$route.reload();
+		setTimeout(function() {
 			total = count;
 			$scope.$apply(function() {
 				$scope.messagesCount =  {
@@ -55,13 +54,12 @@ app.controller('MessagesController', function ($scope, $route, angularFire) {
 					"markers": [0]
 			    };
 		    });
+    	}, 3600);
 	};
 
 	// initializing bullet chart
 	var init = function () {
-		setTimeout(function() {
-			$scope.loadChart();
-		}, 3600);
+		$scope.loadChart();
 	};
 
 	init();
