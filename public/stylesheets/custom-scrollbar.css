@@ -2,6 +2,7 @@
 /* vertical scrollbar */
 .mCSB_container{
 	width:auto;
+	height: 230px;
 	margin-right:30px;
 	overflow:hidden;
 }
@@ -209,19 +210,19 @@
 /*scrollbar themes*/
 /*dark (dark colored scrollbar)*/
 .mCS-dark>.mCSB_scrollTools .mCSB_draggerRail{
-	background:#000; /* rgba fallback */
-	background:rgba(0,0,0,0.15);
+	background:#333333; /* rgba fallback */
+	background:rgba(51,51,51,0.15);
 }
 .mCS-dark>.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
-	background:#000; /* rgba fallback */
-	background:rgba(0,0,0,0.75);
+	background:#333333; /* rgba fallback */
+	background:rgba(51,51,51,0.75);
 }
 .mCS-dark>.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{
-	background:rgba(0,0,0,0.85);
+	background:rgba(51,51,51,0.85);
 }
 .mCS-dark>.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
 .mCS-dark>.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar{
-	background:rgba(0,0,0,0.9);
+	background:rgba(51,51,51,0.9);
 }
 .mCS-dark>.mCSB_scrollTools .mCSB_buttonUp{
 	background-position:-80px 0;
