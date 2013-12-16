@@ -11,6 +11,8 @@ body {
 	text-rendering: optimizeLegibility;
 	-webkit-animation: le-fade 1s 0 1 ease-out;
   	-moz-animation: le-fade 1s 0 1 ease-out;
+  	animation: le-fade 1s 0 1 ease-out;
+
 }
 
 header {

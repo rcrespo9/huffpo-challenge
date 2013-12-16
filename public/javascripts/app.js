@@ -57,6 +57,7 @@ app.controller('MessagesController', function ($scope, $route, angularFire) {
 	init();
 });
 
-// $("#messagesDiv").mCustomScrollbar({
-//     theme:'dark'
-// });
+// custom scrollbar
+$('#messagesDiv').mCustomScrollbar({
+	theme:"dark"
+});
