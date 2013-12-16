@@ -1,6 +1,6 @@
 @import 'http://fonts.googleapis.com/css?family=Oswald:700|Droid+Serif:400,700';
 
-html, body {
+body {
 	background-color: #fff;
 	color: #333;
 	font-family: 'Droid Serif', serif;
@@ -9,6 +9,8 @@ html, body {
 	height: 100%;
 	width: 100%;
 	text-rendering: optimizeLegibility;
+	-webkit-animation: le-fade 1s 0 1 ease-out;
+  	-moz-animation: le-fade 1s 0 1 ease-out;
 }
 
 header {
@@ -35,6 +37,18 @@ h1 {
 
 #sir-francis {
 	margin-bottom: -2%;
+}
+
+img {
+	opacity: 1;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+img:hover {
+	opacity: .9;
 }
 
 article {
@@ -68,7 +82,7 @@ svg text {
 }
 
 #chat {
-	margin-top: 3%;
+	margin-top: 4%;
 	margin-bottom: 10%;
 }
 
@@ -103,3 +117,23 @@ input {
 	margin-bottom: 3%;
 }
 /*end live discourse*/
+
+
+/*onload fadein animation*/
+@-webkit-keyframes le-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes le-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/*end onload fadein animation*/
