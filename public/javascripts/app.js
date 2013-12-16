@@ -38,7 +38,7 @@ app.controller('MessagesController', function ($scope, $route, angularFire) {
 			total = $scope.messages.length;
 			$scope.$apply(function() {
 				$scope.messagesCount =  {
-					"header": "Discussion Meter",
+					"header": "Live Discourse",
 					"title": "Messages",
 					"subtitle": "Sent",
 					"ranges": [0, total * 5],
@@ -46,7 +46,7 @@ app.controller('MessagesController', function ($scope, $route, angularFire) {
 					"markers": [0]
 			    };
 		    });
-    	}, 900);
+    	}, 1200);
 	};
 
 	// initializing controller and bullet chart
@@ -56,3 +56,7 @@ app.controller('MessagesController', function ($scope, $route, angularFire) {
 
 	init();
 });
+
+// $("#messagesDiv").mCustomScrollbar({
+//     theme:'dark'
+// });
