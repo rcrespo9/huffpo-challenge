@@ -1,9 +1,9 @@
 <div class="container" ng-controller="MessagesController">
 
   <!-- article -->
-  <header class="text-center ng-cloak" ng-cloak>
-    <h1>{{article.title}}</h1>
-    <small>By {{article.author}} | Posted on {{article.date | date:'longDate'}}</small>
+  <header class="text-center">
+    <h1 ng-bind="article.title"></h1>
+    <small ng-cloak>By {{article.author}} | Posted on {{article.date | date:'longDate'}}</small>
   </header>
 
   <div ng-cloak id="sir-francis" class="text-center ng-cloak">
@@ -12,15 +12,15 @@
     </a>
   </div>
 
-  <article ng-cloak class="ng-cloak">
-    <p>{{article.content}}</p>
+  <article ng-bind="article.content">
+    <p></p>
   </article>
   <!-- /article -->
 
   <!-- live discourse -->
   <div id="live-discourse" class="row text-center">
     <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3">
-      <h3 ng-cloak class="sub-header ng-cloak">{{messagesCount.header}}</h3>
+      <h3 ng-bind="messagesCount.header" class="sub-header"></h3>
 
       <nvd3-bullet-chart
         data="messagesCount"
@@ -41,8 +41,8 @@
         </div>
 
         <div ng-cloak class="ng-cloak" id="user-input">
-          <input type="text" class="form-control" ng-model="name" placeholder="Name">
-          <textarea class="form-control" rows="4" ng-model="msg" ng-keydown="addMessage($event)" placeholder="Message"></textarea>
+          <input type="text" class="form-control" ng-model="name" placeholder="Name" required>
+          <textarea class="form-control" rows="4" ng-model="msg" ng-keydown="addMessage($event)" placeholder="Message" required></textarea>
         </div>
 
       </div>
