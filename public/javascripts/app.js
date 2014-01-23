@@ -17,8 +17,10 @@ app.controller('MessagesController', function ($scope, $route, angularFire) {
 		angularFire(ref, $scope, "messages");
 		$scope.addMessage = function(e) {
 			if (e.keyCode != 13) return;
-			$scope.messages.push({from: $scope.name, body: $scope.msg});
-			$scope.msg = "";
+			if($scope.userForm.$valid) {
+				$scope.messages.push({from: $scope.name, body: $scope.msg});
+				$scope.msg = "";
+			};
 			$scope.loadChart(); //reloads bullet chart
 			chatScroll();
 		};
@@ -70,6 +72,7 @@ app.controller('MessagesController', function ($scope, $route, angularFire) {
 	init();
 });
 
+// custom scrollbar
 $(document).ready(function() {
 	$('#messagesDiv').perfectScrollbar();
 });
