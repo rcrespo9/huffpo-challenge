@@ -69,3 +69,10 @@ app.controller('MessagesController', function ($scope, $route, angularFire) {
 $('#messagesDiv').mCustomScrollbar({
 	theme:"dark"
 });
+
+// loading screen
+$('.container').css('opacity', 0);
+$(window).load(function() {
+	$('.container').css('opacity', 1);
+	$('#floatingCirclesG').hide();
+});
