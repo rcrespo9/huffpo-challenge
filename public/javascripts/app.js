@@ -20,6 +20,7 @@ app.controller('MessagesController', function ($scope, $route, angularFire) {
 			$scope.messages.push({from: $scope.name, body: $scope.msg});
 			$scope.msg = "";
 			$scope.loadChart(); //reloads bullet chart
+			chatScroll();
 		};
 
 
@@ -57,6 +58,10 @@ app.controller('MessagesController', function ($scope, $route, angularFire) {
     	}, 3600);
 	};
 
+	var chatScroll = function() {
+		angular.element('#messagesDiv')[0].scrollTop = angular.element('#messagesDiv')[0].scrollHeight;
+	}
+
 	// initializing bullet chart
 	var init = function () {
 		$scope.loadChart();
@@ -65,7 +70,6 @@ app.controller('MessagesController', function ($scope, $route, angularFire) {
 	init();
 });
 
-// custom scrollbar
-angular.element('#messagesDiv').mCustomScrollbar({
-	theme:"dark"
+$(document).ready(function() {
+	$('#messagesDiv').perfectScrollbar();
 });
