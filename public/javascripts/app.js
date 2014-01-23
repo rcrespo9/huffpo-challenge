@@ -72,7 +72,7 @@ $('#messagesDiv').mCustomScrollbar({
 
 // loading screen
 $('.container').css('opacity', 0);
-$(window).load(function() {
+$(document).ready(function() {
 	$('.container').css('opacity', 1);
 	$('#floatingCirclesG').hide();
 });
