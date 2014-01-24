@@ -61,7 +61,7 @@ app.controller('MessagesController', function ($scope, $route, angularFire) {
 	};
 
 	var chatScroll = function() {
-		angular.element('#messagesDiv')[0].scrollTop = angular.element('#messagesDiv')[0].scrollHeight;
+		$('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
 	}
 
 	// initializing bullet chart
