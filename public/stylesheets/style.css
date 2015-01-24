@@ -9,6 +9,8 @@ body {
 	height: 100%;
 	width: 100%;
 	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;	
 	-webkit-animation: le-fade 1s 0 1 ease-out;
   	-moz-animation: le-fade 1s 0 1 ease-out;
   	animation: le-fade 1s 0 1 ease-out;
@@ -83,6 +85,11 @@ svg text {
 	margin-bottom: 4%;
 }
 
+.live-discourse-inner {
+	max-width: 585px;
+	margin: 0 auto;
+}
+
 #chat {
 	margin-top: 4%;
 }
@@ -94,7 +101,7 @@ svg text {
 	border-radius: 20px;
 	font-size: .9em;
 	height: 230px;
-	width: 520px;
+	max-width: 520px;
 	overflow: hidden;
 	padding: 10px;
 	text-align: left;
@@ -105,8 +112,12 @@ form {
 	margin-top: 5%;
 }
 
+textarea {
+	resize: none;
+}
+
 .form-control {
-	width: 520px;
+	max-width: 520px;
 }
 
 .form-control:focus {
